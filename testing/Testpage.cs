@@ -8,12 +8,20 @@ namespace testing
     {
         Label TestLabel = new Label(){VerticalOptions = LayoutOptions.CenterAndExpand, HorizontalOptions = LayoutOptions.CenterAndExpand};
         Label TestCount = new Label() { VerticalOptions = LayoutOptions.CenterAndExpand, HorizontalOptions = LayoutOptions.CenterAndExpand };
-        testpageViewModel viewModel = new testpageViewModel();
+
         public Testpage()
         {
-            
-            //TestLabel.SetBinding(Label.TextProperty, nameof(viewModel.text));
-            TestCount.SetBinding(Label.TextProperty, "UrlByteCount.Result", BindingMode.OneWay);
+
+
+            //Work
+            this.BindingContext = new testpageViewModel();
+            TestCount.SetBinding(Label.TextProperty, new Binding("UrlByteCount.Result", BindingMode.OneWay));
+
+            //Doesent Work
+            //testpageViewModel viewModel = new testpageViewModel();
+            //this.BindingContext = viewModel;
+            //TestCount.SetBinding(Label.TextProperty, new Binding(nameof(viewModel.UrlByteCount.Result), BindingMode.OneWay));
+
 
             Content = new StackLayout
             {

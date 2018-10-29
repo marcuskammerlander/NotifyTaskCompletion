@@ -12,11 +12,11 @@ namespace testing
             InitializeComponent();
 
             //CODE UI
-            //MainPage = new Testpage();
+            MainPage = new Testpage();
 
 
             //XAML UI 
-            MainPage = new MyPage();
+            //MainPage = new MyPage();
         }
 
         protected override void OnStart()
